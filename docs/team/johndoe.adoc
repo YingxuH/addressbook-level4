@@ -1,57 +1,58 @@
-= John Doe - Project Portfolio
+= He Yingxu - Project Portfolio
 :imagesDir: ../images
 :stylesDir: ../stylesheets
 
-== PROJECT: AddressBook - Level 4
+== PROJECT: Retail Analytics
 
 ---
 
 == Overview
 
-AddressBook - Level 4 is a desktop address book application used for teaching Software Engineering principles. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.
+Retail Analytics (RA) is an application developed for facilitating retailers to better manage their customer and transaction information. For basic functionalities, users are able to add, delete or edit the curstomer, product and transaction records. In addition, RA can also provide specific marketing recommendation and display the geographic location for each customer.
+
+The application is developed in Java and built from a ~10K LoC address book application provided in a software engineering class. Users interact with it through a GUI created with JavaFX and type in command in a CLI.
 
 == Summary of contributions
 
-* *Major enhancement*: added *the ability to undo/redo previous commands*
-** What it does: allows the user to undo all previous commands one at a time. Preceding undo commands can be reversed by using the redo command.
-** Justification: This feature improves the product significantly because a user can make mistakes in commands and the app should provide a convenient way to rectify them.
-** Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.
-** Credits: _{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}_
+* *Major enhancement*: added *product class and GUI for both product and order class*
+** What it does: Allows the user to add and delete product. Product has productName, productId, Price and Category as its attributes. With the GUI components, users can see all the products and orders they added/selected. Preceding undo commands can be reversed by using the redo command.
+** Justification: It allows the customers to add new products into the storage. That also enables the recommendation engin to market the product to different customers.
+** Highlights: This enhancement requires adding new product class in model part, adding new commands and parsers in logic part, as well as adding new elements in the UI component to visualize the product and order list.
 
-* *Minor enhancement*: added a history command that allows the user to navigate to previous commands using up/down keys.
+* *Minor enhancement*: added Money class to enable the price attribute of product.
+** what is does: Money class can recognize all the valid currencies written the format of ISO 4217 code. It supports operations like addition and subtraction.
+** Justification: Currency calculation require precision to a specific degree, such as two decimals digits. It sometimes also require a specific rounding mod. Considering we cannot control the rounding mod and precision using java doubles, the money class to handle theses issues.
+** highlights: The money class is able to detect invalid currency and invalid number of decimal places.
 
-* *Code contributed*: [https://github.com[Functional code]] [https://github.com[Test code]] _{give links to collated code files}_
+* *Code contributed*: https://github.com/CS2103JAN2018-T15-B1/main/blob/master/collated/functional/YingxuH.md[Functional Code], https://github.com/CS2103JAN2018-T15-B1/main/blob/master/collated/test/YingxuH.md[Test Code]
 
 * *Other contributions*:
+*** Project management:
+** Use issues to maintain the individual and group milestone from v1.1 to v1.5.
+** help solve issues reported during the in-class testing session. (https://github.com/CS2103JAN2018-T15-B1/main/issues/52[52], https://github.com/CS2103JAN2018-T15-B1/main/issues/52[71])
 
-** Project management:
-*** Managed releases `v1.3` - `v1.5rc` (3 releases) on GitHub
-** Enhancements to existing features:
-*** Updated the GUI color scheme (Pull requests https://github.com[#33], https://github.com[#34])
-*** Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests https://github.com[#36], https://github.com[#38])
-** Documentation:
-*** Did cosmetic tweaks to existing contents of the User Guide: https://github.com[#14]
-** Community:
-*** PRs reviewed (with non-trivial review comments): https://github.com[#12], https://github.com[#32], https://github.com[#19], https://github.com[#42]
-*** Contributed to forum discussions (examples:  https://github.com[1], https://github.com[2], https://github.com[3], https://github.com[4])
-*** Reported bugs and suggestions for other teams in the class (examples:  https://github.com[1], https://github.com[2], https://github.com[3])
-*** Some parts of the history feature I added was adopted by several other class mates (https://github.com[1], https://github.com[2])
-** Tools:
-*** Integrated a third party library (Natty) to the project (https://github.com[#42])
-*** Integrated a new Github plugin (CircleCI) to the team repo
+*** Enhancements to existing features:
+** added product and order in GUI
+** resized the customers' list in GUI (Pull requests https://github.com/CS2103JAN2018-T15-B1/main/pull/30[#30], https://github.com/CS2103JAN2018-T15-B1/main/pull/34[#34])
 
-_{you can add/remove categories in the list above}_
+*** Documentation:
+** draw UI and Model UML diagram in DeveloperGuide to help developers better visualize the architect.
+** Rewrote appendices D and E. (Pull request https://github.com/CS2103JAN2018-T15-B1/main/pull/3[#3])
+
+*** Community:
+** PRs reviewed
+** help teammates implements command and model implementations for order class. (Commit https://github.com/CS2103JAN2018-T15-B1/main/pull/34/commits/7afb006202449bcf21cc45bb3a7e2cf168cec555[7afb006], https://github.com/CS2103JAN2018-T15-B1/main/pull/34/commits/5b84edd89f6cb13a8224d4a29b1eefe7830561d7[5b84edd]) (Pull request https://github.com/CS2103JAN2018-T15-B1/main/pull/40[#40])
+
 
 == Contributions to the User Guide
 
-
 |===
-|_Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users._
+|_Given below are sections I contributed to the User Guide._
 |===
 
-include::../UserGuide.adoc[tag=undoredo]
+include::../UserGuide.adoc[tag=addproduct]
 
-include::../UserGuide.adoc[tag=dataencryption]
+include::../UserGuide.adoc[tag=listproduct]
 
 == Contributions to the Developer Guide
 
@@ -59,13 +60,6 @@ include::../UserGuide.adoc[tag=dataencryption]
 |_Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project._
 |===
 
-include::../DeveloperGuide.adoc[tag=undoredo]
+include::../DeveloperGuide.adoc[tag=uiclassdiagram]
 
-include::../DeveloperGuide.adoc[tag=dataencryption]
-
-
-== PROJECT: PowerPointLabs
-
----
-
-_{Optionally, you may include other projects in your portfolio.}_
+include::../DeveloperGuide.adoc[tag=modelcomponentdiagram]
